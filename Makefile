@@ -4,6 +4,8 @@
 
 include config.mk
 
+DESTDIR=${HOME}/.local
+PREFIX=
 SRC = st.c x.c $(LIGATURES_C) $(SIXEL_C)
 OBJ = $(SRC:.c=.o)
 
