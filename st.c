@@ -2048,8 +2048,8 @@ csihandle(void)
 	switch (csiescseq.mode[0]) {
 	default:
 	unknown:
-		fprintf(stderr, "erresc: unknown csi ");
-		csidump();
+		// fprintf(stderr, "erresc: unknown csi ");
+		// csidump();
 		/* die(""); */
 		break;
 	case '@': /* ICH -- Insert <n> blank char */
@@ -2618,9 +2618,9 @@ strhandle(void)
 	case '^': /* PM -- Privacy Message */
 		return;
 	}
-
-	fprintf(stderr, "erresc: unknown str ");
-	strdump();
+	//
+	// fprintf(stderr, "erresc: unknown str ");
+	// strdump();
 }
 
 void
@@ -2982,8 +2982,8 @@ dcshandle(void)
 		}
 	}
 
-	fprintf(stderr, "erresc: unknown dcs ");
-	strdump();
+	// fprintf(stderr, "erresc: unknown dcs ");
+	// strdump();
 }
 
 void
