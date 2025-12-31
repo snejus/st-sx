@@ -33,7 +33,7 @@
 /* linear interpolation for integers */
 #define ILERP(a, b, t, s) ((a) + ((b) - (a)) * (t) / (s))
 
-#define HISTSIZE      2048
+#define HISTSIZE      10048
 
 #define UNDERLINE_COLOR_BITS     (2 + 24)
 #define UNDERLINE_COLOR_MASK     ((1 << UNDERLINE_COLOR_BITS) - 1)
