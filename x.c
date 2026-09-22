@@ -1339,7 +1339,13 @@ xinit(int cols, int rows)
 		xw.depth = attr.depth;
 	}
 
-	XMatchVisualInfo(xw.dpy, xw.scr, xw.depth, TrueColor, &vis);
+	/* Servers without an ARGB visual (XQuartz, for one) leave vis untouched
+	 * here, so fall back to the screen default and give up transparency. */
+	if (!XMatchVisualInfo(xw.dpy, xw.scr, xw.depth, TrueColor, &vis)) {
+		xw.depth = XDefaultDepth(xw.dpy, xw.scr);
+		if (!XMatchVisualInfo(xw.dpy, xw.scr, xw.depth, TrueColor, &vis))
+			die("no TrueColor visual at depth %d\n", xw.depth);
+	}
 	xw.vis = vis.visual;
 
 	/* font */

@@ -9,7 +9,7 @@ PREFIX=
 SRC = st.c x.c $(LIGATURES_C) $(SIXEL_C)
 OBJ = $(SRC:.c=.o)
 
-STLDFLAGS += -lpcre2-32
+STLDFLAGS += `$(PKG_CONFIG) --libs libpcre2-32`
 
 all: st
 
